@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "categoria": "Ranking Flujo Total",
+    "pregunta": "¿Cuáles fueron los 5 peajes con mayor flujo vehicular total en 2015?",
+    "duracion_segundos": 2.24,
+    "trazas": [
+      {
+        "herramienta": "ranking_peajes",
+        "parametros": {
+          "anio": 2015,
+          "cantidad": 5,
+          "indicador": "veh_total"
+        }
+      }
+    ],
+    "respuesta": "**Resultados del flujo vehicular total (indicador: `veh_total`) – Año 2015**\n\n| Posición | Peaje | Departamento | Flujo total (vehículos) |\n|----------|-------|--------------|------------------------|\n| 1 | **Chilca** | Lima | 3 060 315 |\n| 2 | **El Paraíso** | Lima | 3 024 072 |\n| 3 | **Variante de Pasamayo** | Lima | 2 920 572 |\n| 4 | **Uchumayo‑Concesión** | Arequipa | 2 740 573 |\n| 5 | **Piura Sullana** | Piura | 2 513 422 |\n\n**Interpretación**\n\n- Los tres peajes de Lima dominan el ranking, lo que refleja la alta actividad vial de la capital y sus corredores interurbanos en 2015.\n- El peaje “Uchumayo‑Concesión” (Arequipa) y “Piura Sullana” (Piura) están a una distancia considerable de los peajes limeños, lo que sugiere que la movilidad interregional también es sustancial en el periodo analizado.\n- Los valores presentados corresponden a datos **observados** completos para el año calendario 2015. No se trata de una estimación o extrapolación; provienen directamente de la tabla `flujo_vehicular` en Supabase.\n\n**Hipótesis preliminar**\n\n- La preponderancia de peajes limeños puede estar relacionada con el incremento del transporte de mercancías y de viajes de pasajeros en la zona metropolitana, posiblemente influido por la expansión de la red de carreteras y la demanda interna durante ese año.\n\n**Nota metodológica**\n\n- Se utilizó el indicador `veh_total` para contar todos los tipos de vehículos.  \n- Se respetó la regla de no atribuir causalidad; la asociación observada requiere análisis de causas subyacentes (por ejemplo, cambios en políticas de peaje, obras viales, eventos económicos) para confirmar cualquier relación causal."
+  },
+  {
+    "id": 2,
+    "categoria": "Ranking Vehículos Pesados",
+    "pregunta": "¿Cuáles fueron los 3 peajes con mayor tráfico de vehículos pesados en 2015?",
+    "duracion_segundos": 1.51,
+    "trazas": [
+      {
+        "herramienta": "ranking_peajes",
+        "parametros": {
+          "anio": 2015,
+          "indicador": "veh_pesados_total"
+        }
+      }
+    ],
+    "respuesta": "**Indicador utilizado:** veh_pesados_total (tráfico total de vehículos pesados).  \n**Periodo analizado:** año 2015 (periodo completo).\n\n| Posición | Peaje | Departamento | Vehículos pesados (total) |\n|----------|-------|--------------|---------------------------|\n| 1 | Serpentín de Pasamayo | Lima | **2 063 461** |\n| 2 | El Paraíso | Lima | **1 706 563** |\n| 3 | Uchumayo‑Concesión | Arequipa | **1 449 664** |\n\nLos datos provienen de la tabla `flujo_vehicular` en Supabase y han sido extraídos mediante la función **ranking_peajes**. Los tres peajes con mayor tráfico de vehículos pesados en 2015 son los listados arriba."
+  },
+  {
+    "id": 3,
+    "categoria": "Comparación Bivariada Departamentos",
+    "pregunta": "¿Cómo se compara el flujo vehicular total entre Lima e Ica en 2015?",
+    "duracion_segundos": 1.51,
+    "trazas": [
+      {
+        "herramienta": "comparar_departamentos",
+        "parametros": {
+          "anio": 2015,
+          "departamentos": [
+            "Lima",
+            "Ica"
+          ],
+          "indicador": "veh_total"
+        }
+      }
+    ],
+    "respuesta": "**Comparación del flujo vehicular total en 2015**\n\n| Departamento | Flujos vehiculares totales (veh_total) |\n|--------------|----------------------------------------|\n| Lima         | 15 289 151 |\n| Ica          | 4 812 165 |\n\n**Interpretación**  \nEn 2015, Lima registró un flujo vehicular total **3,18 veces mayor** que Ica. Este dato se basa en la tabla `flujo_vehicular` de Supabase y corresponde al indicador *veh_total* para el año 2015.\n\n**Hipótesis**  \nLa diferencia puede deberse a factores como la mayor densidad poblacional de Lima, su rol como centro económico y la mayor cantidad de rutas de peaje dentro del departamento. Sin embargo, el dato solo muestra una asociación; no se puede afirmar causalidad sin un análisis adicional que incluya variables como la infraestructura vial, la actividad económica y los patrones de viaje."
+  },
+  {
+    "id": 4,
+    "categoria": "Comparación Multidepartamental",
+    "pregunta": "¿Qué departamento tuvo mayor flujo vehicular entre Arequipa, Cusco y Puno en 2014?",
+    "duracion_segundos": 1.47,
+    "trazas": [
+      {
+        "herramienta": "comparar_departamentos",
+        "parametros": {
+          "anio": 2014,
+          "departamentos": [
+            "Arequipa",
+            "Cusco",
+            "Puno"
+          ],
+          "indicador": "veh_total"
+        }
+      }
+    ],
+    "respuesta": "**Resultado (Indicador: flujo vehicular total – *veh_total*)**  \n**Periodo:** Año completo 2014  \n**Comparación entre departamentos**: Arequipa, Cusco y Puno\n\n| Departamento | flujo vehicular total (veh_total) |\n|---------------|-----------------------------------|\n| **Arequipa**  | **5 937 819** vehículos |\n| Puno          | 4 069 144 vehículos |\n| Cusco         | 1 487 981 vehículos |\n\n**Conclusión**  \nEn 2014, el departamento con mayor flujo vehicular entre los tres analizados fue **Arequipa**, con un total de 5 937 819 vehículos registrados. Puno ocupó la segunda posición y Cusco la tercera.  \n\n*Fuente de datos:* tabla `flujo_vehicular` en Supabase, función `comparar_departamentos` utilizada con indicador `veh_total`."
+  },
+  {
+    "id": 5,
+    "categoria": "Ranking Vehículos Ligeros",
+    "pregunta": "¿Cuál fue el peaje con mayor cantidad de vehículos ligeros en 2015?",
+    "duracion_segundos": 1.49,
+    "trazas": [
+      {
+        "herramienta": "ranking_peajes",
+        "parametros": {
+          "anio": 2015,
+          "cantidad": 1,
+          "indicador": "veh_ligeros_total"
+        }
+      }
+    ],
+    "respuesta": "**Resultado (2015)**  \n- **Peaje con mayor cantidad de vehículos ligeros:** **Variante de Pasamayo** (Lima)  \n- **Cantidad de vehículos ligeros:** **2 717 109**  \n\n**Interpretación:**  \nEn el año 2015, el peaje “Variante de Pasamayo” registró el mayor flujo de vehículos ligeros entre todos los peajes analizados. Este dato se obtuvo directamente de la tabla `flujo_vehicular` de Supabase mediante la función de ranking de peajes solicitada.  \n\n**Notas:**  \n- El indicador utilizado es `veh_ligeros_total`, que representa el total de vehículos ligeros que transitaron el peaje en el periodo completo del año.  \n- No se inferirá causalidad; el valor simplemente refleja la observación más alta en el conjunto de datos."
+  },
+  {
+    "id": 6,
+    "categoria": "Análisis Contextual de Periodos",
+    "pregunta": "¿Cuáles fueron los 5 principales peajes por flujo en 2026 y qué advertencia temporal aplica?",
+    "duracion_segundos": 3.69,
+    "trazas": [
+      {
+        "herramienta": "ranking_peajes",
+        "parametros": {
+          "anio": 2026,
+          "cantidad": 5,
+          "indicador": "veh_total"
+        }
+      }
+    ],
+    "respuesta": "**Top 5 peajes por flujo total en 2026**\n\n| Posición | Peaje | Departamento | Flujos (vehículos totales) |\n|----------|-------|--------------|---------------------------|\n| 1 | Chilca | Lima | 3 006 618 |\n| 2 | Jahuay Chincha | Ica | 1 463 812 |\n| 3 | Variante de Pasamayo | Lima | 1 459 359 |\n| 4 | Chicama | La Libertad | 1 269 478 |\n| 5 | Ica | Ica | 1 236 694 |\n\n**Advertencia temporal**\n\n- **Período de 2026**: La tabla *flujo_vehicular* solo contiene datos de enero‑octubre de 2026 (hasta la fecha de la última actualización).  \n- **Implicación**: Los valores de flujo son **observados** y no deben extrapolarse directamente a un año completo sin ajustar por la parte faltante. Cualquier comparación con años completos (por ejemplo, 2025, 2024, etc.) debe considerar que 2026 corresponde a un periodo parcial, lo que puede provocar subestimaciones en los totales anuales.\n\n---\n\n*Datos utilizados*: Ranking del indicador `veh_total` para el año 2026. No se inferirá causalidad, solo se presentan las cifras observadas."
+  }
+]

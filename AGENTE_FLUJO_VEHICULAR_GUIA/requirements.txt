@@ -1,0 +1,7 @@
+streamlit
+supabase
+groq
+python-dotenv
+pandas
+plotly
+pytest
