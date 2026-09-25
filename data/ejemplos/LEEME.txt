@@ -1,0 +1,1 @@
+Carpeta opcional para resultados o datos de ejemplo. No coloque credenciales.
